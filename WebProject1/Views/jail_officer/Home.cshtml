@@ -1,0 +1,132 @@
+﻿@model IEnumerable<WebProject1.DAL.prisoner>
+
+@using WebProject1.DAL;
+@using WebProject1;
+
+@{
+    ViewBag.Title = "Jail Officer Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var userID = Session["userid"];
+
+}
+
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+    <div class="container">
+        <nav class="navbar navbar-default navbar-custom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header logo">
+                <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <a href="#"><img class="logo" src="~/Images/logo1.png" alt="" width="119" height="58"><div><h4></h4></div></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav flex-child-menu menu-left">
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../jail_officer/Home">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../prisoners/Create">
+                            Add Prisoner
+                        </a>
+                    </li>
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../jail_officer/PendingComplaints">
+                            Pending Complaints
+                        </a>
+                    </li>
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../jail_officer/ResolvedComplaints">
+                            Resolved Complaints
+                        </a>
+                    </li>
+
+
+                </ul>
+                <ul class="nav navbar-nav flex-child-menu menu-right">
+
+                    <li class="btn"><a href="../../jail_officer/Details/@userID">Settings</a></li>
+                    <li class="btn"><a href="../../Home/Login">Log Out</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <!-- top search form -->
+        <form id="searchBar" action="../../jail_officer/SearchRequest">
+            <div class="top-search">
+                <select name="options">
+                    <option name="byComplaintTitle" value="byComplaintTitle">Complaint Title</option>
+                    <option name="prisonerName" value="prisonerName">Priosner</option>
+
+                </select>
+                <input type="text" name="searchText" placeholder="Search for Prisoners and Complaints">
+                <button id="searchButton" class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+
+    </div>
+</header>
+<!-- END | Header -->
+
+<div class="hero common-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1 style="margin-top: 8%;"> All Prisoners</h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="../../jail_officer/Home">Home</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span> Prisoners</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="topbar-filter">
+                    <p>Found <span>@Model.Count() Prisoners</span> in total</p>
+
+                </div>
+                <div class="flex-wrap-movielist">
+                    @foreach (prisoner item in Model)
+                    {
+
+                        <div class="movie-item-style-2 movie-item-style-1">
+                            <img src="../../../Images/@item.image" alt="@item.name">
+                            <div class="hvr-inner">
+                                <a href="../../prisoners/Details/@item.id"> See details <i class="ion-android-arrow-dropright"></i> </a>
+                            </div>
+                            <div class="mv-item-infor">
+                                <h6><a href="../../prisoners/Details/@item.id">@item.name</a></h6>
+                                <p class="rate">
+                                    <span>ID: @item.id</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

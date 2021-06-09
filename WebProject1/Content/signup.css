@@ -1,0 +1,411 @@
+body {
+  font-size: 18px;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Walter Turncoat', cursive;
+  color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+.main {
+  font-family: SourceSansPro-Regular, sans-serif;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../Images/pic.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+
+}
+
+h4 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #4b2354;
+  
+}
+
+#singin-form {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 380px;
+  height: auto;
+  position: relative;
+  border: 4px solid #800080;
+  padding: 40px;
+  margin: 20px;
+  }
+
+ .form {
+    height: 300px;
+ }
+ .input-container {
+  display: flex;
+  width: 100%;
+ }
+
+.input {
+  /*border-radius: 25px;*/
+  margin: 0px 10px 20px 0px;
+  font-family: SourceSansPro-Bold;
+  font-size: 25px;
+  color: black;
+  line-height: 1.4;
+  display: block;
+  width: 80%;
+  height: 50px;
+  padding: 0 20px 0 23px;
+}
+
+.btn, .singup {
+  margin: 12px;
+  color: #4b2354;
+  border-color: #4b2354;
+}
+.btn:hover {
+  background-color: #4b2354;
+}
+.singup:hover {
+  color: #57b846;
+}
+.txt2 {
+  margin-bottom: 20px;
+}
+.icon {
+  padding: 10px;
+  background: #4b2354;
+  color: white;
+  height: 50px;
+  min-width: 50px;
+  text-align: center;
+}                                     /* End of Sign in Page */
+
+
+
+/*******************       Sign up Page  *******************************/
+
+#singup-body h4 {
+  color: white;
+  font-family: 'Walter Turncoat', cursive;
+
+}
+#singup-body {
+  color: white;
+  background-image: url('../images/dish-918613_1920.jpg');
+  font-family: SourceSansPro-Regular, sans-serif;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-width: 100%;
+  height: auto;
+}
+
+#singup-form {
+  background-color:rgba(0,0,0,0.6);
+  width: auto;
+  height: auto;
+  position: relative;
+  border: 4px solid #800080;
+  padding: 40px;
+  margin: 5%;
+  color: white;
+}
+
+
+[type=radio] {
+  visibility: hidden;
+}
+[type=radio] + i{
+  cursor: pointer;
+}
+[type=radio]:checked + i {
+  outline: 2px solid yellow;
+}
+
+.input-signup {
+  margin: 0px 10px 20px 0px;
+  font-family: SourceSansPro-Bold;
+  font-size: 20px;
+  line-height: 1.4;
+  display: inline;
+  width: 100%;
+  height: 50px;
+  padding: 0 20px 0 23px;
+  min-width: 267px;
+}
+
+
+
+.gender, .fav-color {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 12px;
+}
+
+.fav-color {
+  position: relative;
+  top: 23px;
+}
+.btn-primary {
+  color: white;
+  background-color: #FF6347; 
+  float: right !important;
+}
+.btn-block {
+  border-radius: 25px;
+  width: 30%;
+  margin-right: 35% !important;
+  margin-left: 35% !important;
+  min-width: 140px;
+}
+
+@media screen and (max-width: 700px) {
+  .btn-block {
+    margin-right: 5% !important;
+  margin-left: 5% !important;
+  }
+}
+
+.custom-control-label::before, 
+.custom-control-label::after {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+.custom-control {
+  display: inline-block;
+  margin: 10px;
+}
+#already {
+  color: white;
+}
+#already:hover {
+  color: #FF6347;
+}
+
+.Red::placeholder
+    {
+        color: red;
+    }
+
+#menu_items_body h1, #single_menu_items_body h1 {
+  margin-top: 30px !important;
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 3.5em;
+}
+
+.orderbutton {
+    font-family: 'Walter Turncoat', cursive;
+    align-items: center;
+    padding: 0 20px;
+    height: 50px;
+    background-color: #32CD32;
+    border-radius: 25px;
+    border-color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 120px;
+    min-width: 170px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+.orderbutton {
+    font-size: 16px;
+    background-color: #FF4500;
+    border-color: white; 
+    margin-left: 0px;
+}
+
+.orderbutton:hover {
+  box-shadow: 0 1px 15px 1px #FF0000;
+  font-size: 19px;
+}
+
+.data {
+    font-family: 'Walter Turncoat', cursive;
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    display: block;
+    width: 70%;
+    height: 62px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin: 60px;
+    margin-top: 45px;
+    border-radius: 60px;
+    border-color: black;
+}
+
+#menu_items_body, #single_menu_items_body {
+  background-image: url('../images/p_backimag.jpg');
+  color: white;
+}
+
+#single_menu_items_body h1, #menu_items_body h1 {
+  margin-top: 30px !important;
+  margin-bottom: 0px;
+}
+
+#menu_items_body h1 {
+  margin-bottom: 30px;
+}
+
+.item {
+  width: 28%;
+  height: 250px;
+  background-color: green;
+  border: 2px solid #fff;
+  margin: 2.5%;
+  float: left;
+  position: relative;
+  box-shadow: 0 1px 5px 1px #cccccc;
+  min-width: 135px;
+
+}
+
+.item:hover {
+  box-shadow: 0 1px 15px 1px #0d7;
+}
+
+#menu_items_body .item:hover {
+  transition: all .3s ease-in-out;
+  transform: scale(1.1);
+}
+
+.item span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  background-color: #0d7;
+  color: #fff;
+  opacity: .8;
+}
+
+.detail {
+  margin: 10px;
+  margin-top: 60px;
+}
+
+.detail > h4 {
+  font-size: 20px;
+}
+
+.detail > p {
+  font-size: 20px;
+}
+
+.detail h5 {
+  color: #FF4500;
+  margin-top: -31px;
+  margin-bottom: 20px;
+  font-size: 25px;
+  text-shadow: 1px 1px 1px #222;
+
+}
+
+#single_menu_items_body > div {
+  float: left;
+}
+
+#pizzas{
+  background: url('../images/pizzasmall.jpg') no-repeat center;
+}
+#p2{
+  background: url('../images/p2.jpg') no-repeat center;
+}
+#p3{
+  background: url('../images/p3.jpg') no-repeat center;
+}
+#burgers{
+  background: url('../images/burger.jpg') no-repeat center;
+}
+#b2 {
+  background: url('../images/b2.jpg') no-repeat center;
+}
+#b3 {
+  background: url('../images/b3.jpg') no-repeat center;
+}
+
+#fries{
+  background: url('../images/fries.jpg') no-repeat center;
+}
+
+#fries2{
+  background: url('../images/fries2.jpg') no-repeat center;
+}
+#fries3{
+  background: url('../images/fries3.jpg') no-repeat center;
+}
+
+#samosas{
+  background: url('../images/samosa2.jpg') no-repeat center;
+}
+#samosa2{
+  background: url('../images/samosa.jpg') no-repeat center;
+}
+#samosa3{
+  background: url('../images/samosa3.jpg') no-repeat center;
+}
+#steaks{
+  background: url('../images/steak3.jpg') no-repeat center;
+}
+#steak2{
+  background: url('../images/steak2.jpg') no-repeat center;
+}
+#steak3{
+  background: url('../images/steak.jpg') no-repeat center;
+}
+#sh2{
+  background: url('../images/sh2.jpg') no-repeat center;
+}
+#shakes{
+  background: url('../images/shakes.jpg') no-repeat center;
+}
+#sh3{
+  background: url('../images/sh3.jpg') no-repeat center;
+}
+#seafoods{
+  background: url('../images/sea3.jpg') no-repeat center;
+}
+#sea2{
+  background: url('../images/sea2.jpg') no-repeat center;
+}
+#sea3{
+  background: url('../images/seafood.jpg') no-repeat center;
+}
+#biryani{
+  background: url('../images/biryani.jpg') no-repeat center;
+}
+#bi2{
+  background: url('../images/bi2.jpg') no-repeat center;
+}
+#bi3{
+  background: url('../images/bi3.jpg') no-repeat center;
+}
+#noodles{
+  background: url('../images/noodle.jpg') no-repeat center;
+}
+#n2{
+  background: url('../images/n2.jpg') no-repeat center;
+}
+#n3{
+  background: url('../images/n3.jpg') no-repeat center;
+}

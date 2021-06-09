@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+    var loginmsg = Session["notloginmsg"];
+    var noaccess = Session["noaccess"];
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PMS Login</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/loginStyles.css">
+    <script type="text/javascript">
+        function printLoginMessage() {
+            if("@loginmsg" != "") {
+                alert("@loginmsg");
+            }
+
+            if("@noaccess" != "") {
+                alert("@noaccess");
+            }
+            return;
+        }
+
+    </script>
+</head>
+<body onload="printLoginMessage(); ">
+    <div class="loginbox">
+        <img src="~/Images/PMS.png" class="avatar">
+        <h1>Prisoner Management System</h1>
+        <form action="../Home/MainPage" method="POST" class="my_form" name="my_form" onsubmit="return validateLoginForm()">
+            @{
+                if (Session["error"] != null)
+                {
+                    <p style="color: red">@Session["error"]</p>
+                }
+
+            }
+            <select name="types" id="types">
+                <option value="jailofficer">Jail Officer</option>
+                <option value="jailer">Jailer</option>
+                <option value="courtofficer">Court Officer</option>
+            </select>
+
+
+            <p>Email</p>
+            <input required type="email" name="username" id="username" placeholder="User Name">
+            <p>Password</p>
+            <input required type="password" name="password" id="password" placeholder="Enter Password">
+            <input type="submit" name="" id="LoginButton" value="Login">
+            <label id="status"></label>
+
+        </form>
+    </div>
+    <script type="text/javascript" src="~/Scripts/login_validation.js"></script>
+    
+
+</body>
+
+
+</html>
+
+
+
+

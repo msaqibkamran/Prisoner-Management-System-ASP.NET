@@ -1,0 +1,499 @@
+﻿@model WebProject1.DAL.prisoner
+@using WebProject1.DAL;
+@using WebProject1;
+
+@{
+    ViewBag.Title = "Jail Officer Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var userID = Session["userid"];
+
+}
+
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+    <div class="container">
+        <nav class="navbar navbar-default navbar-custom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header logo">
+                <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <a href="#"><img class="logo" src="~/Images/logo1.png" alt="" width="119" height="58"><div><h4></h4></div></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav flex-child-menu menu-left">
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../jail_officer/Home">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../prisoners/Create">
+                            Add Prisoner
+                        </a>
+                    </li>
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../jail_officer/PendingComplaints">
+                            Pending Complaints
+                        </a>
+                    </li>
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../jail_officer/ResolvedComplaints">
+                            Resolved Complaints
+                        </a>
+                    </li>
+
+
+                </ul>
+                <ul class="nav navbar-nav flex-child-menu menu-right">
+
+                    <li class="btn"><a href="../../jail_officer/Details/@userID">Settings</a></li>
+                    <li class="btn"><a href="../../Home/Login">Log Out</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <!-- top search form -->
+        <form id="searchBar" action="../../jail_officer/SearchRequest">
+            <div class="top-search">
+                <select name="options">
+                    <option name="byComplaintTitle" value="byComplaintTitle">Complaint Title</option>
+                    <option name="prisonerName" value="prisonerName">Priosner</option>
+
+                </select>
+                <input type="text" name="searchText" placeholder="Search for Prisoners and Complaints">
+                <button id="searchButton" class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+
+    </div>
+</header>
+<!-- END | Header -->
+
+
+
+
+<div class="hero mv-single-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@Model.id" class="page-single movie-single movie_single forUSerStars">
+    <div class="container">
+        <div class="row ipad-width2">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="movie-img sticky-sb">
+                    <img src="../../../Images/@Model.image" alt="@Model.name">
+                    <div class="movie-btn">
+
+
+                        <div class="btn-transform transform-vertical red">
+                            <div><a href="../../crime_record/Create/@Model.id" class="item item-1 redbtn"><i class="ion-card"></i>  Add Crime</a></div>
+                            <div><a href="../../crime_record/Create/@Model.id" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-card"></i></a></div>
+                        </div>
+
+
+                        <div class="btn-transform transform-vertical red">
+                            <div><a href="../../community_task/Create/@Model.id" class="item item-1 redbtn"><i class="ion-card"></i>  Pay Stipend</a></div>
+                            <div><a href="../../community_task/Create/@Model.id" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-card"></i></a></div>
+                        </div>
+
+                        <div class="btn-transform transform-vertical red">
+                            <div><a href="../../visitors/Create/@Model.id" class="item item-1 redbtn"><i class="ion-card"></i>  Add Meeting</a></div>
+                            <div><a href="../../visitors/Create/@Model.id" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-card"></i></a></div>
+                        </div>
+
+                        <div class="btn-transform transform-vertical red">
+                            <div><a href="../../assets/Create/@Model.id" class="item item-1 redbtn"><i class="ion-card"></i>  Add Asset</a></div>
+                            <div><a href="../../assets/Create/@Model.id" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-card"></i></a></div>
+                        </div>
+
+                        <div class="btn-transform transform-vertical red">
+                            <div><a href="../../beneficiaries/Create/@Model.id" class="item item-1 redbtn"><i class="ion-card"></i>  Add Beneficiary</a></div>
+                            <div><a href="../../beneficiaries/Create/@Model.id" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-card"></i></a></div>
+                        </div>
+
+                        <div class="btn-transform transform-vertical red">
+                            <div><a href="../../imprisonment_record/Create/@Model.id" class="item item-1 redbtn"><i class="ion-card"></i>  Add Imprisonment Record</a></div>
+                            <div><a href="../../imprisonment_record/Create/@Model.id" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-card"></i></a></div>
+                        </div>
+
+                        <div class="btn-transform transform-vertical red">
+                            <div><a href="../../courts_visited/Create/@Model.id" class="item item-1 redbtn"><i class="ion-card"></i>  Add Court Visit</a></div>
+                            <div><a href="../../courts_visited/Create/@Model.id" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-card"></i></a></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="movie-single-ct main-content">
+                    <h1 class="bd-hd">@Model.name <span style="margin-left: 2%;">ID: @Model.id</span></h1>
+                    <button style="margin-left:32%;" class="mybutton" onclick="window.location.href = '@Url.Action("Edit", "prisoners", new {id = Model.id})';">Edit Profile</button>
+                    <button style="margin-left:1%;" class="mybutton" onclick="deleteConfirmed(event,@Model.id, 'prisoners');">Delete Profile</button>
+                    <div class="social-btn">
+
+
+                    </div>
+                    <div class="movie-rate">
+                        <div class="rate">
+                            <i class="ion-android-star"></i>
+                            <p>
+
+                                <span id="averageRating">
+
+                                </span> Cell Type: @Model.cell_type<br>
+
+
+                            </p>
+                        </div>
+                        <div class="rate-star">
+                            <p>Category:  @Model.category</p>
+
+                        </div>
+                    </div>
+                    <div class="movie-tabs">
+                        <div class="tabs">
+                            <ul class="tab-links tabs-mv">
+                                <li class="active"><a href="#overview">Overview</a></li>
+                                <li><a href="#meetings"> Meetings</a></li>
+                                <li><a href="#complaints">  Complaints </a></li>
+
+                                <li><a href="#prisons"> Prisons</a></li>
+                                <li><a href="#courts"> Courts </a></li>
+                                <li><a href="#crimes"> Crimes</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="overview" class="tab active" style="margin-top: 3%;">
+                                    <div class="row">
+                                        <div class="col-md-8 col-sm-12 col-xs-12">
+
+
+                                            <h3>Community Tasts</h3>
+                                            @{
+                                                foreach (WebProject1.DAL.community_task ac in Model.community_task)
+                                                {
+                                                    <div>
+
+                                                        <h2>@ac.task</h2>
+                                                        <div class="topbar-filter">
+                                                            <p>Date: <span>@ac.date</span> </p>
+                                                            <p>Stipend Amount: @ac.amount Rs</p>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                    <button style="margin-bottom:3%;" class="mybutton" onclick="window.location.href = '@Url.Action("Edit", "community_task", new {id = ac.id})';">Edit</button>
+                                                    @*<button style="margin-bottom:3%;" class="mybutton" onclick="window.location.href = '@Url.Action("DeleteConfirmed", "community_task", new {id = ac.id})';">Delete</button>*@
+                                                    <button style="margin-bottom:3%;" class="mybutton" onclick="deleteConfirmed(event,@ac.id, 'community_task');">Delete</button>
+                                                
+                                                }
+                                            }
+                                        </div>
+                                        <div class="col-md-4 col-xs-12 col-sm-12">
+                                            <div class="sb-it">
+                                                <h6>date of Birth: </h6>
+
+                                                <p><a>@Model.dob</a></p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Father's Name: </h6>
+
+                                                <p><a>@Model.father_name</a></p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Address: </h6>
+
+                                                <p><a>@Model.address</a></p>
+                                            </div>
+
+                                            <div class="sb-it">
+                                                <h6>Entry Date: </h6>
+
+                                                <p><a>12-12-2020</a></p>
+                                            </div>
+
+                                            <div class="sb-it">
+                                                <h6>Stipend: </h6>
+                                                @{
+                                                    int totalStipend = 0;
+                                                    foreach (WebProject1.DAL.community_task ac in Model.community_task)
+                                                    {
+                                                        String s = ac.amount.ToString();
+                                                        int onestipend = Int32.Parse(s);
+                                                        totalStipend = totalStipend + onestipend;
+
+                                                    }
+                                                    
+                                                }
+
+                                                <p><a>@totalStipend Rs</a></p>
+                                            </div>
+
+                                            <div class="sb-it">
+                                                <h6>Assets: </h6>
+                                                <p>
+                                                    @{
+                                                        foreach (WebProject1.DAL.asset ass in Model.asset)
+                                                        {
+
+                                                            <a href="../../assets/Details/@ass.id">@ass.name </a>
+
+                                                            <br />
+
+                                                        }
+                                                    }
+
+                                                </p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>
+
+                                                    Beneficiaries:
+
+                                                </h6>
+                                                <p>
+                                                    @{
+                                                        foreach (WebProject1.DAL.beneficiary gen in Model.beneficiary)
+                                                        {
+
+                                                            <a href="../../beneficiaries/Details/@gen.id">@gen.name </a>
+                                                            <br />
+                                                        }
+                                                    }
+
+                                                </p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Imprisonement Duration:</h6>
+                                                <p>@Model.imprisonment_duration</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="complaints" class="tab review" style="margin-top: 3%;">
+                                    <div class="row">
+                                        <div class="rv-hd">
+
+
+                                        </div>
+                                        <div class="topbar-filter">
+                                            <p>Found <span>@Model.complaint.Count Complaints</span> in total</p>
+
+                                        </div>
+
+                                        <div id="movieReviews">
+
+
+                                            @{
+
+                                                foreach (WebProject1.DAL.complaint com in Model.complaint)
+                                                {
+
+
+                                            <div class="mv-user-review-item">
+                                                <div class="user-infor">
+                                                    <div>
+                                                        <h3>Title: @com.title</h3>
+                                                        <h3>Status: @com.status</h3>
+                                                        <div class="no-star">
+                                                            <span class="ratingCommentStars">Reg Date:  @com.reg_date </span> <i class="ion-android-star"> </i>
+                                                            <span class="ratingCommentStars">Resolved Date:  @com.resolved_date </span> <i class="ion-android-star"> </i>
+                                                        </div>
+                                                        <p class="time">
+
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p>Court Officer: @com.court_officer.name</p>
+                                                <br />
+                                                <p>Jail Officer: @com.jail_officer.name</p>
+                                                <br />
+                                                <p>Description: @com.description</p>
+
+                                                
+
+                                            </div>
+
+
+                                                }
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="meetings" class="tab">
+                                    <div class="row">
+
+                                        <div class="mv-user-review-item" style="margin-bottom: 3%;">
+
+
+                                            @{
+                                                int totalTime = 0;
+                                                foreach (WebProject1.DAL.visitor ac in Model.visitor)
+                                                {
+                                                    int onetime = Int32.Parse(ac.duration);
+                                                    totalTime = totalTime + onetime;
+
+                                                }
+                                                int availabletime = Int32.Parse(Model.allocated_meeting_time) - totalTime;
+                                            }
+                                            <p> Avilable Meeting Time: @availabletime Minutes</p><br>
+                                            <p> Total Meeting Time: @Model.allocated_meeting_time Minutes</p>
+
+                                        </div>
+
+                                        <div class="mvcast-item">
+                                            @{
+                                                foreach (WebProject1.DAL.visitor ac in Model.visitor)
+                                                {
+                                                    <div class="cast-it">
+                                                        <div class="cast-left">
+                                                            <img src="~/Images/@ac.image" alt="" height="100" width="100">
+                                                            <a href="#">@ac.name</a>
+                                                        </div>
+                                                        <p>Duration:  @ac.duration Minutes</p>
+                                                        <br />
+                                                        <p>Date:  @ac.date_of_visit</p>
+                                                        <br />
+                                                        <p>Contact:  @ac.contact</p>
+                                                        <br />
+                                                        <p>CNIC:  @ac.cnic</p>
+
+                                                    </div>
+                                                    <button style="margin-top:0; margin-bottom: 2%;" class="mybutton" onclick="window.location.href = '@Url.Action("Edit", "visitors", new {id = ac.id})';">Edit</button>
+                                                    
+                                                    <button style="margin-top:0; margin-bottom: 2%;" class="mybutton" onclick="deleteConfirmed(event,@ac.id, 'visitors');">Delete</button>
+
+                                                }
+                                            }
+
+                                        </div>
+
+
+                                        <!-- //== -->
+
+                                    </div>
+                                </div>
+
+
+
+                                <div id="prisons">
+                                    @{
+
+                                        foreach (WebProject1.DAL.imprisonment_record i in Model.imprisonment_record)
+                                        {
+                                            <div class="movie-item-style-2" style="margin-top: 3%;">
+
+                                                <div class="mv-item-infor">
+                                                    <h6><a href="#">Jail Name: @i.jail_name <span>Duration: @i.imprisonment_duration</span></a></h6>
+                                                    <p class="rate">
+                                                        <i class="ion-android-star"></i>
+                                                        <span>
+
+
+                                                            Reason of Transfer:  @i.reason_of_transfer
+
+                                                        </span>
+                                                    </p>
+                                                    <p class="run-time">Entry Date: @i.entry_date</p>
+                                                    <br />
+                                                    <p class="run-time"> Transfer Date: @i.exit_date </p>
+                                                    <br />
+                                                    <button style="margin-top:0" class="mybutton" onclick="window.location.href = '@Url.Action("Edit", "imprisonment_record", new {id = i.id})';">Edit</button>
+                                                    
+                                                    <button style="margin-top:0" class="mybutton" onclick="deleteConfirmed(event,@i.id, 'imprisonment_record');">Delete</button>
+
+
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+
+                                <div id="courts">
+                                    @{
+
+                                        foreach (WebProject1.DAL.courts_visited i in Model.courts_visited)
+                                        {
+                                            <div class="movie-item-style-2" style="margin-top: 3%;">
+
+                                                <div class="mv-item-infor">
+                                                    <h6><a href="#">Court Name: @i.court_name <span>Address: @i.address</span></a></h6>
+                                                    <p class="rate">
+                                                        <i class="ion-android-star"></i>
+                                                        <span>
+
+
+                                                            Visit Date:  @i.visit_date
+
+                                                        </span>
+                                                    </p>
+                                                    <br />
+                                                    <p> Description: @i.description</p>
+                                                    <br />
+                                                    <button style="margin-top:0" class="mybutton" onclick="window.location.href = '@Url.Action("Edit", "courts_visited", new {id = i.id})';">Edit</button>
+                                                    
+                                                    <button style="margin-top:0" class="mybutton" onclick="deleteConfirmed(event,@i.id, 'courts_visited');">Delete</button>
+
+
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+
+                                <div id="crimes">
+                                    @{
+
+                                        foreach (WebProject1.DAL.crime_record i in Model.crime_record)
+                                        {
+                                            <div class="movie-item-style-2" style="margin-top: 3%;">
+
+                                                <div class="mv-item-infor">
+                                                    <h6><a href="#">Crime Date: @i.crime_date <span>Punishment: @i.punishment</span></a></h6>
+                                                    <p class="rate">
+                                                        <i class="ion-android-star"></i>
+                                                        <span>
+
+
+                                                            Description:  @i.description
+
+                                                        </span>
+                                                    </p>
+                                                    <br />
+                                                    <p class="describe">Entry Date: @i.imprisonment_date</p>
+                                                    <p class="describe"> Release Date: @i.release_date </p>
+                                                    <button class="mybutton" onclick="window.location.href = '@Url.Action("Edit", "crime_record", new {id = @i.id})';">Edit</button>
+                                                    <button class="mybutton" onclick="deleteConfirmed(event,@i.id, 'crime_record');">Delete</button>
+
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

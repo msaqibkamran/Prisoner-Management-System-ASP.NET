@@ -1,0 +1,98 @@
+﻿@model WebProject1.DAL.visitor
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>visitor</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.cnic)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.cnic)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.contact)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.contact)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.dob)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.dob)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.date_of_visit)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.date_of_visit)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.duration)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.duration)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.image)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.image)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.prisoner.name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.prisoner.name)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+
+
+<head>
+    <!-- Basic need -->
+    <title>Prisoners Database</title>
+    <meta charset="UTF-8">
+    <link rel="profile" href="#">
+
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+    <!-- Mobile specific meta -->
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone-no">
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="~/Content/plugins.css">
+    <link rel="stylesheet" href="~/Content/style.css">
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/plugins.js"></script>
+    <script src="~/Scripts/plugins2.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    
+
+   
+
+</head>
+<body>
+    <!--preloading-->
+    <div id="preloader">
+        <img class="logo" src="~/Images/logo1.png" alt="" width="119" height="58">
+        <div id="status">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+
+    
+
+        @RenderBody()
+    
+
+    <!-- footer section-->
+    <footer class="ht-footer">
+        <div class="container">
+            <div class="flex-parent-ft">
+                <div class="flex-child-ft item1">
+                    <a href="../../Home/MainPage"><img class="logo" src="~/Images/logo1.png" width="119" height="58" alt=""></a>
+                    <p>
+                        FAST PMS Database <br>
+                        Where you can see each and every detail<br>
+                        of Prisoners and perform variuos actions.
+                    </p>
+
+                </div>
+                <div class="flex-child-ft item2">
+                    <h4>Office</h4>
+                    <p>
+                        FAST NUCES<br>
+                        Lahore, 54000
+                    </p>
+                </div>
+                <div class="flex-child-ft item3">
+                    <h4>Contact Us</h4>
+                    <p>Phone No: <a href="#">(+92) 321 222 333 1 </a></p>
+                    <p>Email: l174154@lhr.nu.edu.pk</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="ft-copyright">
+            
+        </div>
+    </footer>
+    <!-- end of footer section-->
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/plugins.js"></script>
+    <script src="~/Scripts/plugins2.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+
+</body>
+</html>

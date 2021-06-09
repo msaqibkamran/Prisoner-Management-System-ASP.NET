@@ -1,0 +1,158 @@
+﻿@model IEnumerable<WebProject1.DAL.prisoner_transfer_request>
+
+@using WebProject1.DAL;
+@using WebProject1;
+@*@model dynamic*@
+
+@{
+    ViewBag.Title = "Jailer Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var userID = Session["userid"];
+}
+
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+    <div class="container">
+        <nav class="navbar navbar-default navbar-custom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header logo">
+                <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <a href="#"><img class="logo" src="~/Images/logo1.png" alt="" width="119" height="58"><div><h4></h4></div></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav flex-child-menu menu-left">
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../court_officer/Home">
+                            Home
+                        </a>
+                    </li>
+
+
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../complaints/Create">
+                            Add Complaint
+                        </a>
+                    </li>
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../complaints/Index">
+                            View Complaints
+                        </a>
+                    </li>
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../prisoner_transfer_request/Create">
+                            Add Transfer Request
+                        </a>
+                    </li>
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../court_officer/AcceptedTransferRequests">
+                            Accepted Transfer Requests
+                        </a>
+                    </li>
+
+
+
+                </ul>
+                <ul class="nav navbar-nav flex-child-menu menu-right">
+                    <li class="btn"><a href="../../court_officer/Details/@userID">Settings</a></li>
+                    <li class="btn"><a href="../../Home/Login">Log Out</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <!-- top search form -->
+        <form id="searchBar" action="../../court_officer/SearchRequest">
+            <div class="top-search">
+                <select name="options">
+                    <option name="byFromJail" value="byFromJail">From Jail</option>
+                    <option name="byToJail" value="byToJail">To Jail</option>
+                    <option name="byRequestStatus" value="byRequestStatus">By Request Status</option>
+                    <option name="byComplaintStatus" value="byComplaintStatus">Complaint Status</option>
+
+                </select>
+                <input type="text" name="searchText" placeholder="Search for transfer requests and Complaints">
+                <button id="searchButton" class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+
+    </div>
+</header>
+<!-- END | Header -->
+
+
+
+<div class="slider movie-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="heading">Search Results</h2>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="col-lg-12">
+
+                <table class="table mytable">
+                    <thead>
+                        <tr>
+                            <th>From Jail</th>
+                            <th>To Jail</th>
+                            <th>Request Date</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.from_jail
+                                </td>
+                                <td>
+                                    @item.to_jail
+                                </td>
+
+                                <td>
+                                    @item.request_date
+                                </td>
+                                <td>
+                                    @item.status
+                                </td>
+                                <td>
+                                    <button class="mybutton" onclick="window.location.href = '@Url.Action("RequestDetails", "prisoner_transfer_request", new {id = item.id})';">Details</button>
+
+                                    @*@Html.ActionLink("Details", "Details", "prisoner_transfer_request", new { id = item.id }, new { @class = "mybutton mybutton:hover" })*@
+                                </td>
+
+                            </tr>
+                        }
+
+
+
+
+                    </tbody>
+                </table>
+                <button class="mybutton" onclick="window.location.href = '@Url.Action("Home", "court_officer")';">Back</button>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>

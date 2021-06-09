@@ -1,0 +1,1072 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="prisonerManagementSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="asset">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="worth" Type="int" Nullable="false" />
+          <Property Name="prisonerid" Type="int" />
+        </EntityType>
+        <EntityType Name="beneficiary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="cnic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="dob" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="prisonerid" Type="int" />
+        </EntityType>
+        <EntityType Name="community_task">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="task" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="amount" Type="int" />
+          <Property Name="prisonerid" Type="int" />
+        </EntityType>
+        <EntityType Name="complaint">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" />
+          <Property Name="description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="prisonerid" Type="int" />
+          <Property Name="reg_date" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="resolved_date" Type="varchar" MaxLength="20" />
+          <Property Name="status" Type="varchar" MaxLength="30" />
+          <Property Name="court_officer_id" Type="int" />
+          <Property Name="jail_officer_id" Type="int" />
+        </EntityType>
+        <EntityType Name="court_officer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="cnic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="dob" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="appointment_date" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="retirement_date" Type="varchar" MaxLength="100" />
+          <Property Name="in_service" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="courts_visited">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="court_name" Type="varchar" MaxLength="100" />
+          <Property Name="address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="prisonerid" Type="int" />
+          <Property Name="visit_date" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="crime_record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="crime_date" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="prisonerid" Type="int" />
+          <Property Name="punishment" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imprisonment_date" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="release_date" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="imprisonment_record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jail_name" Type="varchar" MaxLength="100" />
+          <Property Name="imprisonment_duration" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="prisonerid" Type="int" />
+          <Property Name="reason_of_transfer" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="entry_date" Type="varchar" MaxLength="20" />
+          <Property Name="exit_date" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="jail_officer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="cnic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="dob" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="appointment_date" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="retirement_date" Type="varchar" MaxLength="100" />
+          <Property Name="in_service" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="jailer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="cnic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="dob" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="appointment_date" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="retirement_date" Type="varchar" MaxLength="100" />
+          <Property Name="in_service" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="prisoner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="cnic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dob" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="father_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="punishment" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="category" Type="int" Nullable="false" />
+          <Property Name="imprisonment_duration" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cell_type" Type="int" Nullable="false" />
+          <Property Name="allocated_meeting_time" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="available_meeting_time" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="stipend" Type="int" />
+        </EntityType>
+        <EntityType Name="prisoner_transfer_request">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="from_jail" Type="varchar" MaxLength="100" />
+          <Property Name="to_jail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="reason_of_transfer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="400" />
+          <Property Name="request_date" Type="varchar" MaxLength="30" />
+          <Property Name="accept_date" Type="varchar" MaxLength="30" />
+          <Property Name="status" Type="varchar" MaxLength="30" />
+          <Property Name="prisonerid" Type="int" />
+          <Property Name="court_officer_id" Type="int" />
+          <Property Name="jailer_id" Type="int" />
+        </EntityType>
+        <EntityType Name="visitor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="cnic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="dob" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_of_visit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="duration" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="prisonerid" Type="int" />
+        </EntityType>
+        <Association Name="FK__asset__prisoneri__1DE57479">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="asset" Type="Self.asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="asset">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__beneficia__priso__15502E78">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="beneficiary" Type="Self.beneficiary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="beneficiary">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__community__priso__49C3F6B7">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="community_task" Type="Self.community_task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="community_task">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__complaint__court__33D4B598">
+          <End Role="court_officer" Type="Self.court_officer" Multiplicity="0..1" />
+          <End Role="complaint" Type="Self.complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="court_officer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="complaint">
+              <PropertyRef Name="court_officer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__complaint__jail___34C8D9D1">
+          <End Role="jail_officer" Type="Self.jail_officer" Multiplicity="0..1" />
+          <End Role="complaint" Type="Self.complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jail_officer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="complaint">
+              <PropertyRef Name="jail_officer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__complaint__priso__32E0915F">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="complaint" Type="Self.complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="complaint">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__courts_vi__priso__20C1E124">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="courts_visited" Type="Self.courts_visited" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="courts_visited">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__crime_rec__priso__1B0907CE">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="crime_record" Type="Self.crime_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="crime_record">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__imprisonm__priso__182C9B23">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="imprisonment_record" Type="Self.imprisonment_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="imprisonment_record">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prisoner___court__2A4B4B5E">
+          <End Role="court_officer" Type="Self.court_officer" Multiplicity="0..1" />
+          <End Role="prisoner_transfer_request" Type="Self.prisoner_transfer_request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="court_officer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="prisoner_transfer_request">
+              <PropertyRef Name="court_officer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prisoner___jaile__2B3F6F97">
+          <End Role="jailer" Type="Self.jailer" Multiplicity="0..1" />
+          <End Role="prisoner_transfer_request" Type="Self.prisoner_transfer_request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jailer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="prisoner_transfer_request">
+              <PropertyRef Name="jailer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prisoner___priso__29572725">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="prisoner_transfer_request" Type="Self.prisoner_transfer_request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="prisoner_transfer_request">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__visitor__prisone__1273C1CD">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="visitor" Type="Self.visitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="visitor">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="prisonerManagementSystemModelStoreContainer">
+          <EntitySet Name="asset" EntityType="Self.asset" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="beneficiary" EntityType="Self.beneficiary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="community_task" EntityType="Self.community_task" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="complaint" EntityType="Self.complaint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="court_officer" EntityType="Self.court_officer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="courts_visited" EntityType="Self.courts_visited" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="crime_record" EntityType="Self.crime_record" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="imprisonment_record" EntityType="Self.imprisonment_record" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jail_officer" EntityType="Self.jail_officer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jailer" EntityType="Self.jailer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="prisoner" EntityType="Self.prisoner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="prisoner_transfer_request" EntityType="Self.prisoner_transfer_request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="visitor" EntityType="Self.visitor" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__asset__prisoneri__1DE57479" Association="Self.FK__asset__prisoneri__1DE57479">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="asset" EntitySet="asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__beneficia__priso__15502E78" Association="Self.FK__beneficia__priso__15502E78">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="beneficiary" EntitySet="beneficiary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__community__priso__49C3F6B7" Association="Self.FK__community__priso__49C3F6B7">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="community_task" EntitySet="community_task" />
+          </AssociationSet>
+          <AssociationSet Name="FK__complaint__court__33D4B598" Association="Self.FK__complaint__court__33D4B598">
+            <End Role="court_officer" EntitySet="court_officer" />
+            <End Role="complaint" EntitySet="complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__complaint__jail___34C8D9D1" Association="Self.FK__complaint__jail___34C8D9D1">
+            <End Role="jail_officer" EntitySet="jail_officer" />
+            <End Role="complaint" EntitySet="complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__complaint__priso__32E0915F" Association="Self.FK__complaint__priso__32E0915F">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="complaint" EntitySet="complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__courts_vi__priso__20C1E124" Association="Self.FK__courts_vi__priso__20C1E124">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="courts_visited" EntitySet="courts_visited" />
+          </AssociationSet>
+          <AssociationSet Name="FK__crime_rec__priso__1B0907CE" Association="Self.FK__crime_rec__priso__1B0907CE">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="crime_record" EntitySet="crime_record" />
+          </AssociationSet>
+          <AssociationSet Name="FK__imprisonm__priso__182C9B23" Association="Self.FK__imprisonm__priso__182C9B23">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="imprisonment_record" EntitySet="imprisonment_record" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prisoner___court__2A4B4B5E" Association="Self.FK__prisoner___court__2A4B4B5E">
+            <End Role="court_officer" EntitySet="court_officer" />
+            <End Role="prisoner_transfer_request" EntitySet="prisoner_transfer_request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prisoner___jaile__2B3F6F97" Association="Self.FK__prisoner___jaile__2B3F6F97">
+            <End Role="jailer" EntitySet="jailer" />
+            <End Role="prisoner_transfer_request" EntitySet="prisoner_transfer_request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prisoner___priso__29572725" Association="Self.FK__prisoner___priso__29572725">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="prisoner_transfer_request" EntitySet="prisoner_transfer_request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__visitor__prisone__1273C1CD" Association="Self.FK__visitor__prisone__1273C1CD">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="visitor" EntitySet="visitor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="prisonerManagementSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="asset">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="worth" Type="Int32" Nullable="false" />
+          <Property Name="prisonerid" Type="Int32" />
+          <NavigationProperty Name="prisoner" Relationship="Self.FK__asset__prisoneri__1DE57479" FromRole="asset" ToRole="prisoner" />
+        </EntityType>
+        <EntityType Name="beneficiary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prisonerid" Type="Int32" />
+          <NavigationProperty Name="prisoner" Relationship="Self.FK__beneficia__priso__15502E78" FromRole="beneficiary" ToRole="prisoner" />
+        </EntityType>
+        <EntityType Name="complaint">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prisonerid" Type="Int32" />
+          <Property Name="reg_date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="resolved_date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="court_officer_id" Type="Int32" />
+          <Property Name="jail_officer_id" Type="Int32" />
+          <NavigationProperty Name="court_officer" Relationship="Self.FK__complaint__court__33D4B598" FromRole="complaint" ToRole="court_officer" />
+          <NavigationProperty Name="jail_officer" Relationship="Self.FK__complaint__jail___34C8D9D1" FromRole="complaint" ToRole="jail_officer" />
+          <NavigationProperty Name="prisoner" Relationship="Self.FK__complaint__priso__32E0915F" FromRole="complaint" ToRole="prisoner" />
+        </EntityType>
+        <EntityType Name="court_officer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="appointment_date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="retirement_date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="in_service" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="complaint" Relationship="Self.FK__complaint__court__33D4B598" FromRole="court_officer" ToRole="complaint" />
+          <NavigationProperty Name="prisoner_transfer_request" Relationship="Self.FK__prisoner___court__2A4B4B5E" FromRole="court_officer" ToRole="prisoner_transfer_request" />
+        </EntityType>
+        <EntityType Name="courts_visited">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="court_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prisonerid" Type="Int32" />
+          <Property Name="visit_date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="prisoner" Relationship="Self.FK__courts_vi__priso__20C1E124" FromRole="courts_visited" ToRole="prisoner" />
+        </EntityType>
+        <EntityType Name="crime_record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="crime_date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prisonerid" Type="Int32" />
+          <Property Name="punishment" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imprisonment_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="release_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="prisoner" Relationship="Self.FK__crime_rec__priso__1B0907CE" FromRole="crime_record" ToRole="prisoner" />
+        </EntityType>
+        <EntityType Name="imprisonment_record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jail_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="imprisonment_duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prisonerid" Type="Int32" />
+          <Property Name="reason_of_transfer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="entry_date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="exit_date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="prisoner" Relationship="Self.FK__imprisonm__priso__182C9B23" FromRole="imprisonment_record" ToRole="prisoner" />
+        </EntityType>
+        <EntityType Name="jail_officer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="appointment_date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="retirement_date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="in_service" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="complaint" Relationship="Self.FK__complaint__jail___34C8D9D1" FromRole="jail_officer" ToRole="complaint" />
+        </EntityType>
+        <EntityType Name="jailer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="appointment_date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="retirement_date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="in_service" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="prisoner_transfer_request" Relationship="Self.FK__prisoner___jaile__2B3F6F97" FromRole="jailer" ToRole="prisoner_transfer_request" />
+        </EntityType>
+        <EntityType Name="prisoner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="father_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="punishment" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category" Type="Int32" Nullable="false" />
+          <Property Name="imprisonment_duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cell_type" Type="Int32" Nullable="false" />
+          <Property Name="allocated_meeting_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="available_meeting_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stipend" Type="Int32" />
+          <NavigationProperty Name="asset" Relationship="Self.FK__asset__prisoneri__1DE57479" FromRole="prisoner" ToRole="asset" />
+          <NavigationProperty Name="beneficiary" Relationship="Self.FK__beneficia__priso__15502E78" FromRole="prisoner" ToRole="beneficiary" />
+          <NavigationProperty Name="complaint" Relationship="Self.FK__complaint__priso__32E0915F" FromRole="prisoner" ToRole="complaint" />
+          <NavigationProperty Name="courts_visited" Relationship="Self.FK__courts_vi__priso__20C1E124" FromRole="prisoner" ToRole="courts_visited" />
+          <NavigationProperty Name="crime_record" Relationship="Self.FK__crime_rec__priso__1B0907CE" FromRole="prisoner" ToRole="crime_record" />
+          <NavigationProperty Name="imprisonment_record" Relationship="Self.FK__imprisonm__priso__182C9B23" FromRole="prisoner" ToRole="imprisonment_record" />
+          <NavigationProperty Name="prisoner_transfer_request" Relationship="Self.FK__prisoner___priso__29572725" FromRole="prisoner" ToRole="prisoner_transfer_request" />
+          <NavigationProperty Name="visitor" Relationship="Self.FK__visitor__prisone__1273C1CD" FromRole="prisoner" ToRole="visitor" />
+          <NavigationProperty Name="community_task" Relationship="prisonerManagementSystemModel.FK__community__priso__49C3F6B7" FromRole="prisoner" ToRole="community_task" />
+        </EntityType>
+        <EntityType Name="prisoner_transfer_request">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="from_jail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="to_jail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reason_of_transfer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="request_date" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="accept_date" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="prisonerid" Type="Int32" />
+          <Property Name="court_officer_id" Type="Int32" />
+          <Property Name="jailer_id" Type="Int32" />
+          <NavigationProperty Name="court_officer" Relationship="Self.FK__prisoner___court__2A4B4B5E" FromRole="prisoner_transfer_request" ToRole="court_officer" />
+          <NavigationProperty Name="jailer" Relationship="Self.FK__prisoner___jaile__2B3F6F97" FromRole="prisoner_transfer_request" ToRole="jailer" />
+          <NavigationProperty Name="prisoner" Relationship="Self.FK__prisoner___priso__29572725" FromRole="prisoner_transfer_request" ToRole="prisoner" />
+        </EntityType>
+        <EntityType Name="visitor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_of_visit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prisonerid" Type="Int32" />
+          <NavigationProperty Name="prisoner" Relationship="Self.FK__visitor__prisone__1273C1CD" FromRole="visitor" ToRole="prisoner" />
+        </EntityType>
+        <Association Name="FK__asset__prisoneri__1DE57479">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="asset" Type="Self.asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="asset">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__beneficia__priso__15502E78">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="beneficiary" Type="Self.beneficiary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="beneficiary">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__complaint__court__33D4B598">
+          <End Role="court_officer" Type="Self.court_officer" Multiplicity="0..1" />
+          <End Role="complaint" Type="Self.complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="court_officer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="complaint">
+              <PropertyRef Name="court_officer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__complaint__jail___34C8D9D1">
+          <End Role="jail_officer" Type="Self.jail_officer" Multiplicity="0..1" />
+          <End Role="complaint" Type="Self.complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jail_officer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="complaint">
+              <PropertyRef Name="jail_officer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__complaint__priso__32E0915F">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="complaint" Type="Self.complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="complaint">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prisoner___court__2A4B4B5E">
+          <End Role="court_officer" Type="Self.court_officer" Multiplicity="0..1" />
+          <End Role="prisoner_transfer_request" Type="Self.prisoner_transfer_request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="court_officer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="prisoner_transfer_request">
+              <PropertyRef Name="court_officer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__courts_vi__priso__20C1E124">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="courts_visited" Type="Self.courts_visited" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="courts_visited">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__crime_rec__priso__1B0907CE">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="crime_record" Type="Self.crime_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="crime_record">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__imprisonm__priso__182C9B23">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="imprisonment_record" Type="Self.imprisonment_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="imprisonment_record">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prisoner___jaile__2B3F6F97">
+          <End Role="jailer" Type="Self.jailer" Multiplicity="0..1" />
+          <End Role="prisoner_transfer_request" Type="Self.prisoner_transfer_request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jailer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="prisoner_transfer_request">
+              <PropertyRef Name="jailer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prisoner___priso__29572725">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="prisoner_transfer_request" Type="Self.prisoner_transfer_request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="prisoner_transfer_request">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__visitor__prisone__1273C1CD">
+          <End Role="prisoner" Type="Self.prisoner" Multiplicity="0..1" />
+          <End Role="visitor" Type="Self.visitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="visitor">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="prisonerManagementSystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="asset" EntityType="Self.asset" />
+          <EntitySet Name="beneficiary" EntityType="Self.beneficiary" />
+          <EntitySet Name="complaint" EntityType="Self.complaint" />
+          <EntitySet Name="court_officer" EntityType="Self.court_officer" />
+          <EntitySet Name="courts_visited" EntityType="Self.courts_visited" />
+          <EntitySet Name="crime_record" EntityType="Self.crime_record" />
+          <EntitySet Name="imprisonment_record" EntityType="Self.imprisonment_record" />
+          <EntitySet Name="jail_officer" EntityType="Self.jail_officer" />
+          <EntitySet Name="jailer" EntityType="Self.jailer" />
+          <EntitySet Name="prisoner" EntityType="Self.prisoner" />
+          <EntitySet Name="prisoner_transfer_request" EntityType="Self.prisoner_transfer_request" />
+          <EntitySet Name="visitor" EntityType="Self.visitor" />
+          <AssociationSet Name="FK__asset__prisoneri__1DE57479" Association="Self.FK__asset__prisoneri__1DE57479">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="asset" EntitySet="asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__beneficia__priso__15502E78" Association="Self.FK__beneficia__priso__15502E78">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="beneficiary" EntitySet="beneficiary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__complaint__court__33D4B598" Association="Self.FK__complaint__court__33D4B598">
+            <End Role="court_officer" EntitySet="court_officer" />
+            <End Role="complaint" EntitySet="complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__complaint__jail___34C8D9D1" Association="Self.FK__complaint__jail___34C8D9D1">
+            <End Role="jail_officer" EntitySet="jail_officer" />
+            <End Role="complaint" EntitySet="complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__complaint__priso__32E0915F" Association="Self.FK__complaint__priso__32E0915F">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="complaint" EntitySet="complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prisoner___court__2A4B4B5E" Association="Self.FK__prisoner___court__2A4B4B5E">
+            <End Role="court_officer" EntitySet="court_officer" />
+            <End Role="prisoner_transfer_request" EntitySet="prisoner_transfer_request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__courts_vi__priso__20C1E124" Association="Self.FK__courts_vi__priso__20C1E124">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="courts_visited" EntitySet="courts_visited" />
+          </AssociationSet>
+          <AssociationSet Name="FK__crime_rec__priso__1B0907CE" Association="Self.FK__crime_rec__priso__1B0907CE">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="crime_record" EntitySet="crime_record" />
+          </AssociationSet>
+          <AssociationSet Name="FK__imprisonm__priso__182C9B23" Association="Self.FK__imprisonm__priso__182C9B23">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="imprisonment_record" EntitySet="imprisonment_record" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prisoner___jaile__2B3F6F97" Association="Self.FK__prisoner___jaile__2B3F6F97">
+            <End Role="jailer" EntitySet="jailer" />
+            <End Role="prisoner_transfer_request" EntitySet="prisoner_transfer_request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prisoner___priso__29572725" Association="Self.FK__prisoner___priso__29572725">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="prisoner_transfer_request" EntitySet="prisoner_transfer_request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__visitor__prisone__1273C1CD" Association="Self.FK__visitor__prisone__1273C1CD">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="visitor" EntitySet="visitor" />
+          </AssociationSet>
+          <EntitySet Name="community_task" EntityType="prisonerManagementSystemModel.community_task" />
+          <AssociationSet Name="FK__community__priso__49C3F6B7" Association="prisonerManagementSystemModel.FK__community__priso__49C3F6B7">
+            <End Role="prisoner" EntitySet="prisoner" />
+            <End Role="community_task" EntitySet="community_task" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="community_task">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="task" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="prisonerid" Type="Int32" />
+          <NavigationProperty Name="prisoner" Relationship="prisonerManagementSystemModel.FK__community__priso__49C3F6B7" FromRole="community_task" ToRole="prisoner" />
+        </EntityType>
+        <Association Name="FK__community__priso__49C3F6B7">
+          <End Type="prisonerManagementSystemModel.prisoner" Role="prisoner" Multiplicity="0..1" />
+          <End Type="prisonerManagementSystemModel.community_task" Role="community_task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prisoner">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="community_task">
+              <PropertyRef Name="prisonerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="prisonerManagementSystemModelStoreContainer" CdmEntityContainer="prisonerManagementSystemEntities">
+          <EntitySetMapping Name="asset">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.asset">
+              <MappingFragment StoreEntitySet="asset">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="worth" ColumnName="worth" />
+                <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="beneficiary">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.beneficiary">
+              <MappingFragment StoreEntitySet="beneficiary">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="complaint">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.complaint">
+              <MappingFragment StoreEntitySet="complaint">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+                <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+                <ScalarProperty Name="resolved_date" ColumnName="resolved_date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="court_officer_id" ColumnName="court_officer_id" />
+                <ScalarProperty Name="jail_officer_id" ColumnName="jail_officer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="court_officer">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.court_officer">
+              <MappingFragment StoreEntitySet="court_officer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="appointment_date" ColumnName="appointment_date" />
+                <ScalarProperty Name="retirement_date" ColumnName="retirement_date" />
+                <ScalarProperty Name="in_service" ColumnName="in_service" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="courts_visited">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.courts_visited">
+              <MappingFragment StoreEntitySet="courts_visited">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="court_name" ColumnName="court_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+                <ScalarProperty Name="visit_date" ColumnName="visit_date" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="crime_record">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.crime_record">
+              <MappingFragment StoreEntitySet="crime_record">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="crime_date" ColumnName="crime_date" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+                <ScalarProperty Name="punishment" ColumnName="punishment" />
+                <ScalarProperty Name="imprisonment_date" ColumnName="imprisonment_date" />
+                <ScalarProperty Name="release_date" ColumnName="release_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="imprisonment_record">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.imprisonment_record">
+              <MappingFragment StoreEntitySet="imprisonment_record">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="jail_name" ColumnName="jail_name" />
+                <ScalarProperty Name="imprisonment_duration" ColumnName="imprisonment_duration" />
+                <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+                <ScalarProperty Name="reason_of_transfer" ColumnName="reason_of_transfer" />
+                <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+                <ScalarProperty Name="exit_date" ColumnName="exit_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jail_officer">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.jail_officer">
+              <MappingFragment StoreEntitySet="jail_officer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="appointment_date" ColumnName="appointment_date" />
+                <ScalarProperty Name="retirement_date" ColumnName="retirement_date" />
+                <ScalarProperty Name="in_service" ColumnName="in_service" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jailer">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.jailer">
+              <MappingFragment StoreEntitySet="jailer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="appointment_date" ColumnName="appointment_date" />
+                <ScalarProperty Name="retirement_date" ColumnName="retirement_date" />
+                <ScalarProperty Name="in_service" ColumnName="in_service" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prisoner">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.prisoner">
+              <MappingFragment StoreEntitySet="prisoner">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="father_name" ColumnName="father_name" />
+                <ScalarProperty Name="punishment" ColumnName="punishment" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="imprisonment_duration" ColumnName="imprisonment_duration" />
+                <ScalarProperty Name="cell_type" ColumnName="cell_type" />
+                <ScalarProperty Name="allocated_meeting_time" ColumnName="allocated_meeting_time" />
+                <ScalarProperty Name="available_meeting_time" ColumnName="available_meeting_time" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="stipend" ColumnName="stipend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prisoner_transfer_request">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.prisoner_transfer_request">
+              <MappingFragment StoreEntitySet="prisoner_transfer_request">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="from_jail" ColumnName="from_jail" />
+                <ScalarProperty Name="to_jail" ColumnName="to_jail" />
+                <ScalarProperty Name="reason_of_transfer" ColumnName="reason_of_transfer" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="request_date" ColumnName="request_date" />
+                <ScalarProperty Name="accept_date" ColumnName="accept_date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+                <ScalarProperty Name="court_officer_id" ColumnName="court_officer_id" />
+                <ScalarProperty Name="jailer_id" ColumnName="jailer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="visitor">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.visitor">
+              <MappingFragment StoreEntitySet="visitor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="date_of_visit" ColumnName="date_of_visit" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="community_task">
+            <EntityTypeMapping TypeName="prisonerManagementSystemModel.community_task">
+              <MappingFragment StoreEntitySet="community_task">
+                <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="task" ColumnName="task" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

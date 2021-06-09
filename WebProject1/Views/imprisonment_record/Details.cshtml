@@ -1,0 +1,74 @@
+﻿@model WebProject1.DAL.imprisonment_record
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>imprisonment_record</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.jail_name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.jail_name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.imprisonment_duration)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.imprisonment_duration)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.reason_of_transfer)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.reason_of_transfer)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.entry_date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.entry_date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.exit_date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.exit_date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.prisoner.name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.prisoner.name)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

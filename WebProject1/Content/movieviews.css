@@ -1,0 +1,206 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: auto;
+    background-size: center;
+    background-position: center;
+}
+
+.main-bar {
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+    margin-left:100px
+}
+
+    .main-bar li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+        .main-bar li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 20px;
+            font-family: "Arial";
+            font-size: 20px;
+        }
+
+        .main-bar li.active a {
+            border: 1px solid white;
+        }
+
+        .main-bar li a:hover {
+            border: 1px solid white;
+        }
+
+.logo img {
+    width: 70px;
+    height: auto;
+    float: left;
+}
+
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 )),url(../Avatars/cin.jpg);
+    font-family: monospace;
+}
+
+.row {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.topic {
+    position: absolute;
+    width: 600px;
+    margin-left: -100px;
+    margin-top: 20px;
+}
+.movie-img {
+    height: 200px;
+    box-shadow: -4px 4px 5px 0 #000;
+    margin-left:610px;
+    margin-top:-390px;
+}
+
+h1 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.search_button {
+    margin-top: 124px;
+    margin-left: 440px;
+}
+
+.btn {
+    border: 1px solid white;
+    padding: 10px 30px;
+    text-decoration: none;
+    margin-right: 30px;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.header-btn {
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 7px 20px;
+    float: left;
+    margin-left: 630px;
+    margin-top: -180px;
+    color: #fff !important;
+    background: #107afd;
+    font-weight: 600;
+}
+
+.movie_details {
+    margin: 3% 0;
+    color: white;
+}
+
+.casts img {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+p {
+    color: white;
+}
+
+
+.popular h3 {
+    color: Red;
+}
+
+.popular img {
+    width: 100%;
+    height: 40%;
+    box-shadow: -4px 4px 5px 0 #000;
+    cursor: pointer;
+}
+
+    .popular img:hover {
+        transform: translateY(-10px);
+    }
+
+.feedback-form {
+    width: 25%;
+    height: 60%;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%,-50%);
+    padding: 30px 40px;
+    box-sizing: border-box;
+    border-right: 8px;
+    text-align: 0 0 20px #000000b3;
+    box-shadow: 0 0 20px #000000b3;
+    margin-left:1000px;
+}
+
+    .feedback-form h1 {
+        margin-top: 0;
+        font-weight: 200;
+    }
+
+.txtb {
+    border: 1px solid gray;
+    margin: 8px 0;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+    .txtb label {
+        display: block;
+        text-align: left;
+        color: #333;
+        font-size: 14px;
+        color: red;
+    }
+
+    .txtb input {
+        width: 100%;
+        border: none;
+        background: none;
+        outline: none;
+        font-size: 18px;
+        margin-top: 6px;
+        color: white;
+    }
+
+    .txtb textarea {
+        width: 100%;
+        border: none;
+        background: none;
+        outline: none;
+        font-size: 18px;
+        margin-top: 6px;
+        color: white;
+    }
+
+.Submit-btn {
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 7px 20px;
+    float: left;
+    color:red !important;
+    background-color: #fb2525;
+    font-weight: 600;
+    margin-top: 15px;
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    border: none;
+    text-align: center;
+}

@@ -1,0 +1,207 @@
+﻿@model WebProject1.DAL.prisoner_transfer_request
+
+@using WebProject1.DAL;
+@using WebProject1;
+
+@{ 
+    var userID = Session["userid"];
+}
+
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+    <div class="container">
+        <nav class="navbar navbar-default navbar-custom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header logo">
+                <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <a href="#"><img class="logo" src="~/Images/logo1.png" alt="" width="119" height="58"><div><h4></h4></div></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav flex-child-menu menu-left">
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../court_officer/Home">
+                            Home
+                        </a>
+                    </li>
+
+
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../complaints/Create">
+                            Add Complaint
+                        </a>
+                    </li>
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../complaints/Index">
+                            View Complaints
+                        </a>
+                    </li>
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../prisoner_transfer_request/Create">
+                            Add Transfer Request
+                        </a>
+                    </li>
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../court_officer/AcceptedTransferRequests">
+                            Accepted Transfer Requests
+                        </a>
+                    </li>
+
+
+
+                </ul>
+                <ul class="nav navbar-nav flex-child-menu menu-right">
+                    <li class="btn"><a href="../../court_officer/Details/@userID">Settings</a></li>
+                    <li class="btn"><a href="../../Home/Login">Log Out</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <!-- top search form -->
+        <form id="searchBar" action="../../court_officer/SearchRequest">
+            <div class="top-search">
+                <select name="options">
+                    <option name="byFromJail" value="byFromJail">From Jail</option>
+                    <option name="byToJail" value="byToJail">To Jail</option>
+                    <option name="byRequestStatus" value="byRequestStatus">By Request Status</option>
+                    <option name="byComplaintStatus" value="byComplaintStatus">Complaint Status</option>
+
+                </select>
+                <input type="text" name="searchText" placeholder="Search for transfer requests and Complaints">
+                <button id="searchButton" class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+
+    </div>
+</header>
+<!-- END | Header -->
+
+
+
+<div class="slider movie-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="heading">Prisoner Transfer Request Details </h2>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="col-lg-12">
+
+                <table class="table mytable">
+
+                    <tbody>
+                        <tr>
+                            <th>From Jail</th>
+                            <td>@Model.from_jail</td>
+                        </tr>
+
+                        <tr>
+                            <th>To Jail</th>
+                            <td>@Model.to_jail</td>
+                        </tr>
+
+                        <tr>
+                            <th>Reason of Transfer</th>
+                            <td>@Model.reason_of_transfer</td>
+                        </tr>
+
+                        <tr>
+                            <th>Description</th>
+                            <td>@Model.description</td>
+                        </tr>
+
+                        <tr>
+                            <th>Request Date</th>
+                            <td>@Model.request_date</td>
+                        </tr>
+
+                        <tr>
+                            <th>Accept Date</th>
+                            <td>@Model.accept_date</td>
+                        </tr>
+
+                        <tr>
+                            <th>Status</th>
+                            <td>@Model.status</td>
+                        </tr>
+
+                        <tr>
+                            <th>Court Officer</th>
+                            <td>@Model.court_officer.name</td>
+                        </tr>
+
+                        <tr>
+                            <th>Jailer</th>
+                            <td>@Model.jailer.name</td>
+                        </tr>
+
+                        <tr>
+                            <th>Prisoner</th>
+                            <td>@Model.prisoner.name</td>
+                        </tr>
+
+                        <tr>
+                            @{
+                                if (Model.status != "Accepted")
+                                {
+                                    <td>
+                                        <button class="mybutton" onclick="window.location.href = '@Url.Action("Edit", "prisoner_transfer_request", new {id = Model.id} )';">Edit</button>
+                                    </td>
+                                }
+                            }
+
+                            <td>
+                                <button class="mybutton" onclick="deleteConfirmed(event,@Model.id, 'prisoner_transfer_request');">Delete</button>
+
+                            </td>
+                            <td>
+                            
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="mybutton" onclick="window.location.href = '@Url.Action("Home")';">Back</button>
+
+
+                            </td>
+                        </tr>
+
+                        
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

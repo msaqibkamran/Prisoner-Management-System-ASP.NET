@@ -1,0 +1,142 @@
+﻿@model WebProject1.DAL.asset
+@using WebProject1.DAL;
+@using WebProject1;
+
+
+@{
+    ViewBag.Title = "Crime Create Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var userID = Session["userid"];
+    var prisonerID = Session["prisonerID"];
+}
+
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+    <div class="container">
+        <nav class="navbar navbar-default navbar-custom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header logo">
+                <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <a href="#"><img class="logo" src="~/Images/logo1.png" alt="" width="119" height="58"><div><h4></h4></div></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav flex-child-menu menu-left">
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../jail_officer/Home">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../prisoners/Create">
+                            Add Prisoner
+                        </a>
+                    </li>
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../jail_officer/PendingComplaints">
+                            Pending Complaints
+                        </a>
+                    </li>
+                    <li class="dropdown first">
+                        <a class="btn btn-default " href="../../jail_officer/ResolvedComplaints">
+                            Resolved Complaints
+                        </a>
+                    </li>
+
+
+                </ul>
+                <ul class="nav navbar-nav flex-child-menu menu-right">
+
+                    <li class="btn"><a href="../../jail_officer/Details/@userID">Settings</a></li>
+                    <li class="btn"><a href="../../Home/Login">Log Out</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <!-- top search form -->
+        <form id="searchBar" action="../../jail_officer/SearchRequest">
+            <div class="top-search">
+                <select name="options">
+                    <option name="byComplaintTitle" value="byComplaintTitle">Complaint Title</option>
+                    <option name="prisonerName" value="prisonerName">Priosner</option>
+
+                </select>
+                <input type="text" name="searchText" placeholder="Search for Prisoners and Complaints">
+                <button id="searchButton" class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+
+    </div>
+</header>
+<!-- END | Header -->
+<div class="hero user-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+
+                    <ul class="breadcumb">
+                        <li class="active"><a href="../../jail_officer/Home">Home</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span>Add Asset</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4>Add Asset</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.Label("Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @id = "name", @onChange = "checkname();", @onClick = "removetext(this, 'Asset Name');" } })
+                                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Worth", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.worth, new { id = "worth" })
+                                @Html.ValidationMessageFor(model => model.worth, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input id="assetCreate" type="submit" value="Create" class="mybutton"/>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div>
+                    <button class="mybutton" onclick="window.location.href = '@Url.Action("Details", "prisoners", new {id = prisonerID})';">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

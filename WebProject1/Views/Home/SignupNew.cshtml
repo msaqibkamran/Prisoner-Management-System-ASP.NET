@@ -1,0 +1,127 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/stylesSignup.css">
+    <link href="https://fonts.googleapis.com/css?family=Walter+Turncoat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>Signup Page</title>
+
+</head>
+<body id="singup-body">
+    <div id="singup-main" class="container-fluid s-main">
+        <div id="singup-form">
+            <h4 class="singup-title text-center">
+                Sign Up Form
+            </h4>
+            <form id="myform" class="s-form form-group row">
+
+                <div class="input-container col-lg-6 col-md-6" onchange="checkfullname();">
+                    <i class="fas fa-user-circle icon"></i>
+                    <input id="signup-username" class="input-signup form-control" type="text" maxlength="20" name="username" placeholder="Full Name" onclick="removetext(this, 'Full Name');">
+                </div>
+
+                <div class="input-container col-lg-6 col-md-6" onchange="alphanumeric();">
+                    <i class="fas fa-user icon"></i>
+                    <input id="signup-username2" class="input-signup form-control" type="text" maxlength="20" name="username" placeholder="Username" onclick="removetext(this,'Username');">
+                </div>
+
+                <div class="input-container col-lg-6" onchange="ValidateEmail();">
+                    <i class="far fa-envelope icon"></i>
+                    <input id="signup-email" class="input-signup form-control" type="email" name="pass" placeholder="Email" onclick="removetext(this,'Email');">
+                </div>
+
+                <div class="input-container col-lg-6 col-md-6" onchange="checkid();">
+                    <i class="fa fa-id-card icon"></i>
+                    <input id="signup-card" class="input-signup form-control" type="text" maxlength="20" name="username" placeholder="3***********9" onclick="removetext(this,'3***********9');">
+                </div>
+
+                <div class="input-container col-lg-6 col-md-6" onchange="checkpass();">
+                    <i class="fas fa-key icon"></i>
+                    <input id="signup-pass" class="input-signup form-control" type="password" name="pass" placeholder="Password" onclick="removetext(this,'Password');">
+                </div>
+
+                <div class="input-container col-lg-6 col-md-6" onchange="checkAge();">
+                    <i class="far fa-calendar-alt icon"></i>
+                    <input id="signup-age" class="input-signup form-control" type="text" name="pass" placeholder="dd-mm-yyy" onclick="removetext(this,'dd-mm-yyy');">
+                </div>
+
+                <div class="input-container col-lg-6 col-md-6" onchange="checkphone();">
+                    <i class="fas fa-phone icon"></i>
+                    <input id="signup-phone" class="input-signup form-control" type="tel" name="pass" placeholder="Phone 032********" onclick="removetext(this,'Phone 032********');">
+                </div>
+
+                <div class="input-container col-lg-6 col-md-6" onchange="checkCountry();">
+                    <i class="fas fa-globe icon"></i>
+                    <select class="input-signup form-control" id="country" name="sellist1" placeholder="Select Country" onclick="removetext(this,'Select Country');">
+                        <option value="" disabled selected>Select your Country</option>
+                        <option>Qatar</option>
+                        <option>Pakistan</option>
+                        <option>Saudi Arabia</option>
+                        <option>USA</option>
+                    </select>
+                </div>
+
+                <div class="radio-wrap col-lg-6">
+                    <span class="gender"> Gender: </span>
+                    <label>
+                        <input type="radio" name="test" value="small">
+                        <i class="fas fa-male icon"><br>Male</i>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="test" value="small">
+                        <i class="fas fa-female icon"><br>Female</i>
+                    </label>
+                </div>
+
+
+
+                <div class="checkboxes col-lg-6 col-md-12">
+                    <span class="fav-color"> Favourite Color: </span>
+                    <span class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="green" name="example1">
+                        <label class="custom-control-label" for="green">Green</label>
+                    </span>
+                    <span class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="red" name="example1">
+                        <label class="custom-control-label" for="red">Red</label>
+                    </span>
+                    <span class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="black" name="example1">
+                        <label class="custom-control-label" for="black">Black</label>
+                    </span>
+                </div>
+
+
+                <div class="col text-center col-lg-12 ">
+                    <button type="button" class="btn btn-lg btn-primary btn-lg btn-block" onclick="return checkform();">
+                        Sign Up
+                    </button>
+                </div>
+
+                <br>
+
+                <div class="col text-center">
+                    <a href="../index.html" id="already" class="singup">
+                        Already have an Acocount ?
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!--  <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="~/Scripts/SignupNew.js"></script>
+</body>
+</html>

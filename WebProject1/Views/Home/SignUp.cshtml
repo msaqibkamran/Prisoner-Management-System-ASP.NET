@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Walter+Turncoat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/Content/SignUpStyleSheets.css">
+
+    <title>Sign Up</title>
+
+</head>
+<body class="my_body">
+    <div class="container">
+        <form action="../../users/newUser" method="POST" class="this_form" name="my_form" >
+            <h3 class="text-center">Signup</h3>
+            <div class="row">
+                <div class="col-md-6" onchange="alphanumeric();">
+                    <div class="form-group">
+                        <label for="email_adres">User name</label>
+                        <input type="text" name="user_name" placeholder="enter your username" class="form-control" id="signup-username2" onclick="removetext(this,'Username');">
+                    </div>
+                </div>
+                <div class="col-md-6" onchange="ValidateEmail();">
+                    <div class="form-group">
+                        <label for="email_adres">Email Address</label>
+                        <!-- onsubmit="return validateEmail()" -->
+                        <input type="text" name="email_addres" placeholder="enter your email" class="form-control" id="signup-email" onclick="removetext(this,'Email');">
+                    </div>
+                </div>
+                <div class="col-md-6" onchange="checkpass();">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" placeholder="enter your password" class="form-control" id="signup-pass" onclick="removetext(this,'Password');">
+                    </div>
+                </div>
+                <div class="col-md-6" onchange="checkphone();">
+                    <div class="form-group">
+                        <label for="contact_info">Contact Number</label>
+                        <input type="tel" name="contact_info" placeholder="enter your phone number" class="form-control" id="signup-phone" onclick="removetext(this,'Phone');">
+                    </div>
+                </div>
+                <div class="col-md-6" onchange="checkAge();">
+                    <div class="form-group">
+                        <label for="contact_info">Date of Birth</label>
+                        <input  name="age" type="text" placeholder="dd-mm-yyy" class="form-control" id="signup-age" onclick="removetext(this,'dd-mm-yyy');">
+                    </div>
+                </div>
+
+ 
+
+                <div class="col-md-6" >
+                    <div class="form-group">
+                        <label for="password">Age group</label>
+                        <select name="age_group" id="age_grp" class="form-control" >
+                            
+                            <option value="18-25">18-25</option>
+                            <option value="26-40">26-40</option>
+                            <option value="40+">40+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="radio-wrap col-lg-6">
+                    <span class="gender"> Gender: </span>
+                    <label>
+                        <input type="radio" name="gender" value="Male">
+                        <i class="fas fa-male icon"><br>Male</i>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender" value="Female">
+                        <i class="fas fa-female icon"><br>Female</i>
+                    </label>
+                </div>
+
+
+
+
+
+
+            </div>
+            <button type="submit" class="btn  btn-primary btn-block" onclick="return checkform();">Signup</button> <br><br>
+            <div class="text-center">
+                <a href="Login">Already have an account ?  </a>
+            </div>
+        </form>
+    </div>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/SignupNew.js"></script>
+</body>
+</html>

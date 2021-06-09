@@ -1,0 +1,95 @@
+﻿@model IEnumerable<WebProject1.DAL.prisoner_transfer_request>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.from_jail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.to_jail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.reason_of_transfer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.request_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.accept_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.court_officer.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jailer.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prisoner.name)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.from_jail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.to_jail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reason_of_transfer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.request_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.accept_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.court_officer.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jailer.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prisoner.name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

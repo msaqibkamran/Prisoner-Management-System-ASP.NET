@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ac90ca881b349f39043b17d584296ee" Name="Diagram1">
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.asset" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.beneficiary" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.complaint" Width="1.5" PointX="6" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.court_officer" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.courts_visited" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.crime_record" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.imprisonment_record" Width="1.5" PointX="3" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.jail_officer" Width="1.5" PointX="3.75" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.jailer" Width="1.5" PointX="3.75" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.prisoner" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.prisoner_transfer_request" Width="1.5" PointX="6" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.visitor" Width="1.5" PointX="3" PointY="31" IsExpanded="true" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__asset__prisoneri__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__beneficia__priso__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__complaint__court__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__complaint__jail___34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__complaint__priso__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__prisoner___court__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__courts_vi__priso__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__crime_rec__priso__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__imprisonm__priso__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__prisoner___jaile__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__prisoner___priso__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__visitor__prisone__1273C1CD" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="prisonerManagementSystemModel.community_task" Width="1.5" PointX="3" PointY="13" />
+        <AssociationConnector Association="prisonerManagementSystemModel.FK__community__priso__49C3F6B7" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
